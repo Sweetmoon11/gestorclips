@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gestor de Clips · Sweetmoon</title>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<header><div class="moon">🌙</div><h1><span>Gestor de Clips</span> · Sweetmoon</h1></header>
+<main>
+  <div class="tabs">
+    <button class="tab on" data-tab="detectar">Detectar momentos</button>
+    <button class="tab" data-tab="guardados">Clips guardados</button>
+  </div>
+
+  <section id="detectar">
+    <div class="card">
+      <div class="tabs" style="margin-top:0">
+        <button class="tab modo on" data-modo="link">🔗 Link del VOD</button>
+        <button class="tab modo" data-modo="archivo">📄 Subir chat.json</button>
+      </div>
+      <div id="modoLink">
+        <input type="text" id="vodUrl" placeholder="https://www.twitch.tv/videos/2907079590" style="width:100%;padding:12px 14px;font-size:15px">
+        <div class="meta" style="margin-top:6px">La app descarga el chat sola. En streams largos puede tardar 1–3 minutos.</div>
+      </div>
+      <div class="drop" id="drop" hidden>
+        <input type="file" id="file" accept=".json" hidden>
+        <div id="dropText">Arrastra aquí tu <b>chat.json</b> o haz clic para elegirlo</div>
+      </div>
+      <div class="row">
+        <label>Streamer<input type="text" id="streamer" value="Sweetmoon"></label>
+        <label>Sensibilidad: <span id="sensVal">2.0</span>
+          <input type="range" id="sens" min="1" max="3" step="0.1" value="2"></label>
+        <label>Máx. momentos<input type="number" id="max" value="10" min="1" max="50"></label>
+        <label class="chk"><input type="checkbox" id="guardar"> Guardar todos en Mongo</label>
+        <button class="main" id="btn">Analizar</button>
+      </div>
+      <div class="meta" style="margin-top:10px">Menos sensibilidad = más momentos (menos exigente). Si no guardas todos, puedes aprobar uno por uno y solo esos se guardan.</div>
+    </div>
+    <div class="status" id="status"></div>
+    <div class="grid" id="resultados"></div>
+  </section>
+
+  <section id="guardados" hidden>
+    <div class="status" id="status2"></div>
+    <div class="grid" id="lista"></div>
+  </section>
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>

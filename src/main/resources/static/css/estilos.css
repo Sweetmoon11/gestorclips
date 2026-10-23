@@ -1,0 +1,57 @@
+/* Estilos del Gestor de Clips */
+:root{
+  --bg:#0f0d17; --panel:#1a1726; --panel2:#231f33; --line:#2f2a45;
+  --text:#ece9f5; --muted:#9a93b3; --accent:#b48cff; --accent2:#ff8cc6;
+  --ok:#5ee0a0; --bad:#ff6b81;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{padding:28px 20px 8px;max-width:1100px;margin:auto;display:flex;align-items:center;gap:14px}
+header h1{margin:0;font-size:24px;letter-spacing:.3px}
+header h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.moon{font-size:30px}
+main{max-width:1100px;margin:auto;padding:12px 20px 60px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+.tabs{display:flex;gap:8px;margin:10px 0 16px}
+.tab{background:transparent;border:1px solid var(--line);color:var(--muted);padding:8px 14px;border-radius:999px;cursor:pointer}
+.tab.on,.tab.modo.on{background:var(--panel2);color:var(--text);border-color:var(--accent)}
+.drop{border:2px dashed var(--line);border-radius:12px;padding:26px;text-align:center;cursor:pointer;transition:.15s}
+.drop.over,.drop:hover{border-color:var(--accent);background:var(--panel2)}
+.drop b{color:var(--accent)}
+.row{display:flex;flex-wrap:wrap;gap:14px;align-items:end;margin-top:14px}
+label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+input[type=text],input[type=number]{background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:8px;padding:8px 10px;width:140px}
+input[type=range]{width:160px;accent-color:var(--accent)}
+.chk{flex-direction:row;align-items:center;gap:6px}
+button.main{background:linear-gradient(90deg,var(--accent),var(--accent2));border:0;color:#1a1026;font-weight:700;padding:10px 20px;border-radius:10px;cursor:pointer}
+button.main:disabled{opacity:.5;cursor:wait}
+.status{margin:14px 0;color:var(--muted);min-height:22px}
+.status.err{color:var(--bad)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
+.clip{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.clip.aprobado{border-color:var(--ok)}
+.clip.descartado{opacity:.45}
+.player{aspect-ratio:16/9;background:#000;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative}
+.player iframe{width:100%;height:100%;border:0}
+.player .play{font-size:13px;color:var(--muted);text-align:center}
+.player .play big{display:block;font-size:40px;color:var(--accent)}
+.body{padding:14px;display:flex;flex-direction:column;gap:10px;flex:1}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.time{font-weight:700;font-size:17px}
+.score{font-size:12px;padding:3px 9px;border-radius:999px;background:var(--panel2);border:1px solid var(--line)}
+.bar{height:6px;background:var(--panel2);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.meta{font-size:12px;color:var(--muted)}
+.chat{background:var(--panel2);border-radius:8px;padding:8px 10px;font-size:13px;max-height:130px;overflow:auto}
+.chat div{padding:2px 0;border-bottom:1px solid #2a2540}
+.chat div:last-child{border:0}
+.actions{display:flex;gap:8px;margin-top:auto}
+.actions button,.actions a{flex:1;text-align:center;text-decoration:none;font-size:13px;padding:8px;border-radius:8px;cursor:pointer;border:1px solid var(--line);background:var(--panel2);color:var(--text)}
+.actions .ok:hover{border-color:var(--ok);color:var(--ok)}
+.actions .no:hover{border-color:var(--bad);color:var(--bad)}
+.actions a:hover{border-color:var(--accent)}
+.badge{font-size:11px;padding:2px 8px;border-radius:99px}
+.badge.aprobado{background:#173a2a;color:var(--ok)}
+.badge.descartado{background:#3a1720;color:var(--bad)}
+.empty{text-align:center;color:var(--muted);padding:40px}
+@media (max-width:500px){.grid{grid-template-columns:1fr}}
